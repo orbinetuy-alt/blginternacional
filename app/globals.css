@@ -1,0 +1,23 @@
+:root{--navy:#09182b;--paper:#f5f6f7;--red:#d91e28;--ink:#102339}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:3px solid var(--red);outline-offset:7px}
+.header{min-height:108px;background:var(--navy);color:white;display:flex;align-items:center;gap:48px;padding:20px 4.5vw}
+.brand{display:block;flex-shrink:0}
+.brand img{display:block;width:132px;height:auto}
+.header-caption{font-size:14px;line-height:1.5;color:#c0c8d0;border-left:1px solid #ffffff30;padding-left:32px}
+.contact{margin-left:auto;font-size:15px;line-height:1.6;border-bottom:2px solid var(--red);padding:8px 0}
+.intro{padding:38px 4.5vw 42px}
+.kicker{margin:0 0 26px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.headline-row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+h1{margin:0;font-size:clamp(54px,6.8vw,108px);font-weight:400;letter-spacing:-.06em;line-height:.98}
+h1 span{color:#667587}
+.territory{margin:0 0 6px;flex-shrink:0;font-size:16px;line-height:1.6;border-left:2px solid var(--red);padding-left:20px}
+.road{position:relative;margin:0;overflow:hidden;background:var(--navy)}
+.road>img{display:block;width:100%;height:auto}
+.road figcaption{position:absolute;bottom:20px;right:4.5vw;color:white;font-size:10px;letter-spacing:.14em;text-shadow:0 1px 6px #000}
+@media(min-width:1800px){.intro{padding-top:58px;padding-bottom:58px}}
+@media(max-width:700px){.header{min-height:94px;padding:16px 6vw;gap:20px}.brand img{width:108px}.header-caption{display:none}.contact{font-size:14px}.intro{padding:34px 6vw 36px}.kicker{font-size:11px;margin-bottom:28px}.headline-row{display:block}h1{font-size:clamp(42px,10.5vw,70px);line-height:1.04}.territory{font-size:14px;margin-top:28px;padding-left:14px}.road>img{width:100%;height:330px;object-fit:cover;object-position:31% center}.road figcaption{font-size:9px;bottom:14px;right:6vw}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
