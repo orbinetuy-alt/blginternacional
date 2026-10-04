@@ -32,6 +32,53 @@ h1 { margin: 0; font-size: clamp(44px, 4.45vw, 80px); font-weight: 500; letter-s
 .panel-content>a { display: inline-block; margin-top: 22px; padding-bottom: 6px; border-bottom: 2px solid var(--red); }
 .info-panel :focus-visible { outline-color: var(--red); }
 body:has(dialog[open]) { overflow: hidden; }
+
+.coverage { background: white; color: var(--navy); padding: 96px 5% 80px; }
+.coverage-inner { max-width: 1440px; margin: auto; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr); gap: 5%; align-items: center; }
+.coverage h2 { font-size: clamp(32px, 3vw, 48px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; margin: 0 0 34px; }
+.coverage-tabs { display: flex; gap: 28px; border-bottom: 1px solid #d4dae0; margin-bottom: 28px; }
+.coverage-tabs button { background: transparent; border: 0; border-bottom: 2px solid transparent; padding: 12px 0 15px; font-size: 15px; color: #626f7d; margin-bottom: -1px; transition: color 180ms, border-color 180ms; }
+.coverage-tabs button[aria-selected="true"] { color: var(--navy); border-bottom-color: var(--red); }
+.coverage-description { min-height: 118px; }
+.coverage-description p { margin: 0 0 12px; font-size: 18px; line-height: 1.6; max-width: 400px; }
+.coverage-description>span { color: #637080; font-size: 14px; line-height: 1.6; display: block; max-width: 380px; }
+.destination-label { display: block; font-size: 13px; margin: 28px 0 10px; color: #637080; }
+#coverage-destination { width: 100%; max-width: 380px; font: inherit; font-size: 16px; background: white; color: var(--navy); padding: 13px 12px; border: 1px solid #b8c2cd; border-radius: 0; }
+.coverage-selection { margin: 30px 0 20px; }
+.coverage-selection>span { color: #637080; text-transform: uppercase; letter-spacing: .08em; font-size: 11px; }
+.coverage-selection h3 { font-weight: 500; font-size: 30px; letter-spacing: -.025em; margin: 8px 0 0; }
+.coverage-inquiry { display: inline-block; font-size: 15px; border-bottom: 2px solid var(--red); padding: 8px 0; line-height: 1.4; }
+.coverage-inquiry:hover { color: #bd1e27; }
+.coverage :focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+.coverage-map-panel { min-width: 0; }
+.map-topline { display: flex; justify-content: space-between; gap: 12px; align-items: center; font-size: 13px; color: #657181; padding-bottom: 16px; border-bottom: 1px solid #e3e7eb; }
+.map-current { color: var(--navy); font-weight: 600; text-align: right; }
+.coverage-map { display: block; width: 100%; height: auto; overflow: visible; animation: veil-in 320ms ease-out; }
+.map-region { stroke: white; stroke-width: 1; vector-effect: non-scaling-stroke; transition: fill 180ms ease; }
+.map-region.is-covered { fill: #a6bdcf; cursor: pointer; }
+.map-region.is-context { fill: #e9edf0; }
+.map-region.is-covered.is-hovered { fill: #536f89; }
+.map-region.is-covered.is-selected { fill: var(--red); }
+.map-region:focus-visible { outline: none; stroke: var(--navy); stroke-width: 2.5; }
+.capital-marker { cursor: pointer; }
+.capital-marker circle:not(:first-child) { fill: var(--navy); stroke: white; stroke-width: 1.5; }
+.capital-marker circle.capital-selected { fill: var(--red); }
+.capital-marker path { fill: none; stroke: #7a8998; stroke-width: 1; }
+.capital-marker text { fill: var(--navy); font: 14px Arial, sans-serif; }
+.map-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; color: #536171; font-size: 12px; }
+.map-legend>span { display: flex; align-items: center; gap: 7px; }
+.map-legend i { width: 10px; height: 10px; display: inline-block; }
+.legend-covered { background: #a6bdcf; }.legend-selected { background: var(--red); }.legend-context { background: #e9edf0; }
+.map-attribution { text-align: center; font-size: 10px; color: #657181; margin: 20px 0 0; }
+.map-attribution a { text-decoration: underline; text-underline-offset: 3px; }
+@media(max-width: 800px) {
+  .coverage { padding: 64px 6% 56px; }
+  .coverage-inner { grid-template-columns: 1fr; gap: 40px; }
+  .coverage h2 { max-width: 500px; }
+  .coverage-description { min-height: 0; }
+  .coverage-map-panel { grid-row: 2; }
+  .coverage-map { max-height: 540px; }
+}
 @media(min-aspect-ratio: 2/1) and (min-width: 801px) { .hero { min-height: 480px; } .hero-heading { top: 43%; } }
 @media(max-width: 800px) {
   :root { --nav-height: 88px; }

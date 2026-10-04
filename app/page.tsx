@@ -3,6 +3,7 @@ import Navigation from './navigation';
 import Services from './services';
 import ScrollReveal from './scroll-reveal';
 import Clients from './clients';
+import Coverage from './coverage';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </section>
       <ScrollReveal><Services /></ScrollReveal>
       <Clients />
+      <Coverage />
     </main>
   );
 }
