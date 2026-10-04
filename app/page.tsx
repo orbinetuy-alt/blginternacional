@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Navigation from './navigation';
 import Services from './services';
 import ScrollReveal from './scroll-reveal';
+import Clients from './clients';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <p className="photo-caption">BLG · TRANSPORTE TERRESTRE</p>
       </section>
       <ScrollReveal><Services /></ScrollReveal>
+      <Clients />
     </main>
   );
 }
