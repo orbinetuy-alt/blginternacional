@@ -1,27 +1,19 @@
 import Image from 'next/image';
+import Navigation from './navigation';
 
 export default function Home() {
   return (
     <main id="inicio">
-      <header className="header">
-        <a className="brand" href="#inicio" aria-label="BLG, inicio">
-          <Image src="/images/blg-logo.png" alt="BLG Transporte Internacional" width={500} height={258} priority />
-        </a>
-        <span className="header-caption">Transporte terrestre<br />nacional e internacional</span>
-        <a className="contact" href="mailto:comercial@blg.com.py">Hablemos de tu carga</a>
-      </header>
+      <Navigation />
       <section className="hero" aria-labelledby="hero-title">
-        <div className="intro">
-          <p className="kicker">BLG / Transporte Internacional</p>
-          <div className="headline-row">
-            <h1 id="hero-title">Compromiso<br /><span>en cada entrega.</span></h1>
-            <p className="territory">Desde Paraguay.<br />Conectados con la región.</p>
-          </div>
+        <Image className="hero-photo" src="/images/blg-carretera.jpg" alt="Flota de BLG Transporte Internacional en carretera" fill priority sizes="100vw" />
+        <div className="hero-shade" aria-hidden="true" />
+        <div className="hero-heading">
+          <p className="eyebrow">Transporte nacional e internacional</p>
+          <h1 id="hero-title">La confianza<br />mueve todo.</h1>
+          <span className="signature" aria-hidden="true" />
         </div>
-        <figure className="road">
-          <Image src="/images/blg-carretera.jpg" alt="Camiones de BLG Transporte Internacional recorriendo una carretera" width={2500} height={825} priority sizes="100vw" />
-          <figcaption>BLG TRANSPORTE INTERNACIONAL</figcaption>
-        </figure>
+        <p className="photo-caption">BLG · TRANSPORTE TERRESTRE</p>
       </section>
     </main>
   );
