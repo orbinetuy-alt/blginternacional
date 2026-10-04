@@ -10,7 +10,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid white; outline-offset
 .brand img { display: block; width: 132px; height: auto; }
 .navigation { display: flex; align-items: center; gap: clamp(25px, 3vw, 48px); }
 .navigation button, .nav-section { border: 0; padding: 12px 0; background: transparent; color: #d7dce2; font-size: 14px; }
-.navigation button:hover, .nav-section:hover { color: white; box-shadow: 0 1px 0 var(--red); }
+.navigation button:hover, .nav-section:hover { color: white; }
 .nav-contact { padding: 13px 25px; border: 1px solid #ffffff60; margin-left: 12px; font-size: 14px; }
 .nav-contact:hover { background: white; color: var(--navy); }
 .menu-toggle { display: none; }
@@ -66,7 +66,7 @@ body:has(dialog[open]) { overflow: hidden; }
 .service-index { padding-top: 6px; color: #737d88; font-size: 13px; font-family: monospace; }
 .service h3 { margin: 0; font-size: clamp(25px, 2.2vw, 34px); line-height: 1.2; font-weight: 500; letter-spacing: -.025em; }
 .service h3 a { text-decoration-thickness: 1px; text-underline-offset: 7px; }
-.service h3 a:hover { color: #bd1e27; text-decoration-line: underline; }
+.service h3 a:hover { color: #bd1e27; }
 .services a:focus-visible { outline-color: var(--red); }
 .service-content>p { margin: 14px 0 24px; max-width: 390px; color: #596575; font-size: 16px; line-height: 1.65; }
 .service-label { font-size: 12px; color: #637080; letter-spacing: .065em; text-transform: uppercase; }
@@ -78,6 +78,38 @@ body:has(dialog[open]) { overflow: hidden; }
 .services-contact>span { color: #596575; }
 .services-contact>a { border-bottom: 2px solid var(--red); padding: 6px 0; }
 .services-contact>a:hover { color: #bd1e27; }
+
+/* Short, one-time entrances; hover feedback never changes layout. */
+.hero-heading .eyebrow { animation: enter-up 650ms cubic-bezier(.2,.7,.2,1) 80ms both; }
+.hero-heading h1 { animation: enter-up 750ms cubic-bezier(.2,.7,.2,1) 180ms both; }
+.signature { transform-origin: left; animation: draw-line 700ms cubic-bezier(.2,.7,.2,1) 380ms both; }
+[data-reveal] { transition: opacity 650ms cubic-bezier(.2,.7,.2,1), transform 650ms cubic-bezier(.2,.7,.2,1); }
+[data-reveal="pending"] { opacity: 0; transform: translateY(18px); }
+[data-reveal="visible"] { opacity: 1; transform: translateY(0); }
+.service:nth-child(even)[data-reveal="visible"] { transition-delay: 85ms; }
+[data-reveal]:focus-within { opacity: 1; transform: none; transition-delay: 0ms; }
+.navigation button, .nav-section { position: relative; transition: color 180ms ease; }
+.navigation button::after, .nav-section::after { content: ''; position: absolute; bottom: 3px; left: 0; width: 100%; height: 1px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
+.navigation button:hover::after, .navigation button:focus-visible::after, .nav-section:hover::after, .nav-section:focus-visible::after { transform: scaleX(1); }
+.nav-contact { transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease; }
+.service h3 a { background-image: linear-gradient(var(--red), var(--red)); background-size: 0 1px; background-repeat: no-repeat; background-position: left bottom; padding-bottom: 4px; transition: color 200ms ease, background-size 260ms ease; }
+.service h3 a:hover, .service h3 a:focus-visible { background-size: 100% 1px; }
+.service-index { transition: color 220ms ease; }
+.service:focus-within .service-index { color: var(--red); }
+.services-contact>a, .panel-content>a { transition: color 180ms ease, border-color 180ms ease; }
+.menu-lines { transition: transform 200ms ease, border-color 200ms ease; }
+.info-panel[open] { animation: enter-up 240ms ease-out both; }
+.info-panel[open]::backdrop { animation: veil-in 200ms ease-out both; }
+@keyframes enter-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes draw-line { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+@keyframes veil-in { from { opacity: 0; } to { opacity: 1; } }
+@media(hover: hover) { .service:hover .service-index { color: var(--red); } }
+@media(max-width: 800px) { .navigation.is-open { animation: enter-up 220ms ease-out both; } }
+@media(max-width: 560px) { .service:nth-child(even)[data-reveal="visible"] { transition-delay: 0ms; } }
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
 @media(max-width: 800px) {
   .services { padding: 64px 6% 0; }
   .services-intro { display: block; margin-bottom: 36px; }
