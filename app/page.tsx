@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Navigation from './navigation';
+import Services from './services';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         </div>
         <p className="photo-caption">BLG · TRANSPORTE TERRESTRE</p>
       </section>
+      <Services />
     </main>
   );
 }
