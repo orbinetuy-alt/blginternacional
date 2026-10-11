@@ -4,7 +4,7 @@ import Services from './services';
 import ScrollReveal from './scroll-reveal';
 import Clients from './clients';
 import Coverage from './coverage';
-import FleetFilm from './fleet-film';
+import FleetPhoto from './fleet-photo';
 
 export default function Home() {
   return (
@@ -23,7 +23,7 @@ export default function Home() {
       <ScrollReveal><Services /></ScrollReveal>
       <Clients />
       <Coverage />
-      <FleetFilm />
+      <FleetPhoto />
     </main>
   );
 }
