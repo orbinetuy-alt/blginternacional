@@ -3,14 +3,13 @@ import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 const content = {
-  Flota: { title: 'La flota detrás de cada entrega.', text: 'Unidades destinadas al transporte de carga general, refrigerada y operaciones especiales, con geolocalización para el seguimiento de los recorridos.' },
   Nosotros: { title: 'Tu socio en transporte.', text: 'BLG Transporte Internacional es un operador logístico de Paraguay que integra personas, procesos y tecnología para acompañar cada operación con atención personalizada.' },
 } as const;
 type Section = keyof typeof content;
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [section, setSection] = useState<Section>('Flota');
+  const [section, setSection] = useState<Section>('Nosotros');
   const dialog = useRef<HTMLDialogElement>(null);
   function openSection(value: Section) { setSection(value); setMenuOpen(false); dialog.current?.showModal(); }
   return <>
@@ -20,6 +19,7 @@ export default function Navigation() {
       <nav id="main-nav" className={`navigation ${menuOpen ? 'is-open' : ''}`} aria-label="Navegación principal">
         <a className="nav-section" href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
         <a className="nav-section" href="#cobertura" onClick={() => setMenuOpen(false)}>Cobertura</a>
+        <a className="nav-section" href="#flota" onClick={() => setMenuOpen(false)}>Flota</a>
         {(Object.keys(content) as Section[]).map((name) => <button key={name} onClick={() => openSection(name)}>{name}</button>)}
         <a className="nav-contact" href="mailto:comercial@blg.com.py">Contacto</a>
       </nav>

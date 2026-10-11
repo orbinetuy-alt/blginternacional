@@ -1,4 +1,13 @@
 :root { --navy: #091525; --red: #db242c; --white: #fff; --nav-height: 102px; }
+.fleet-film { position: relative; background: white url('/images/blg-flota-poster.jpg') center / cover no-repeat; }
+.fleet-film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.fleet-film-fade { position: absolute; inset: 0 0 auto; height: 20%; background: linear-gradient(to bottom, #fff 0%, #ffffffb3 25%, #ffffff40 60%, #ffffff00 100%); pointer-events: none; }
+.fleet-film-control { position: absolute; bottom: 28px; right: 5%; display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 10px 16px; color: white; background: #091525c9; border: 1px solid #ffffff55; border-radius: 2px; font-size: 12px; }
+.fleet-film-control:hover { background: var(--navy); }
+.fleet-intro { padding: 72px 5% 88px; background: white; color: var(--navy); }
+.fleet-rule { display: block; width: 28px; height: 2px; background: var(--red); margin-bottom: 24px; }
+.fleet-intro h2 { font-weight: 500; font-size: clamp(36px, 4vw, 56px); letter-spacing: -.035em; margin: 0; }
+@media(max-width: 800px) { .fleet-film-control { bottom: 12px; right: 6%; padding: 8px 12px; } .fleet-intro { padding: 48px 6% 64px; } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 24px); }
 body { margin: 0; background: var(--navy); color: var(--white); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
