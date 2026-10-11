@@ -1,12 +1,12 @@
 :root { --navy: #091525; --red: #db242c; --white: #fff; --nav-height: 102px; }
 .fleet-photo { position: relative; background: white; overflow: hidden; }
-.fleet-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; }
-.fleet-photo-tint { position: absolute; inset: 0; background: linear-gradient(to bottom, #265c9433, #265c9414 24%, transparent 48%); pointer-events: none; }
-.fleet-photo-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, white 0%, #ffffffb3 4%, #ffffff00 20%, #ffffff00 72%, #ffffff80 87%, white 100%); pointer-events: none; }
+.fleet-photo img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; object-position: center 38%; }
+.fleet-photo-tint { position: absolute; inset: 0; background: linear-gradient(to bottom, #123e6b66 0%, #1a4a783d 45%, #183e6429 100%); pointer-events: none; }
+.fleet-photo-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, white 0%, #ffffff99 3%, #ffffff00 15%, #ffffff00 78%, #ffffff80 91%, white 100%); pointer-events: none; }
 .fleet-intro { padding: 72px 5% 88px; background: white; color: var(--navy); }
 .fleet-rule { display: block; width: 28px; height: 2px; background: var(--red); margin-bottom: 24px; }
 .fleet-intro h2 { font-weight: 500; font-size: clamp(36px, 4vw, 56px); letter-spacing: -.035em; margin: 0; }
-@media(max-width: 800px) { .fleet-intro { padding: 48px 6% 64px; } }
+@media(max-width: 800px) { .fleet-photo img { aspect-ratio: 16 / 9; object-position: center 32%; } .fleet-intro { padding: 48px 6% 64px; } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 24px); }
 body { margin: 0; background: var(--navy); color: var(--white); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
