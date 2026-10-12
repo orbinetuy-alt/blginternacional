@@ -5,6 +5,7 @@ import ScrollReveal from './scroll-reveal';
 import Clients from './clients';
 import Coverage from './coverage';
 import FleetPhoto from './fleet-photo';
+import Fleet from './fleet';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Clients />
       <Coverage />
       <FleetPhoto />
+      <Fleet />
     </main>
   );
 }

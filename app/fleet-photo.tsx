@@ -7,9 +7,5 @@ export default function FleetPhoto() {
       <div className="fleet-photo-tint" aria-hidden="true" />
       <div className="fleet-photo-fade" aria-hidden="true" />
     </div>
-    <section className="fleet-intro" id="flota" aria-labelledby="fleet-title">
-      <span className="fleet-rule" aria-hidden="true" />
-      <h2 id="fleet-title">Nuestra flota.</h2>
-    </section>
   </>;
 }
