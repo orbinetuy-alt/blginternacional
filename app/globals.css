@@ -174,11 +174,30 @@ body:has(dialog[open]) { overflow: hidden; }
 .clients { background: #f5f6f7; color: var(--navy); padding: 52px 5% 36px; border-top: 1px solid #e3e6e9; }
 .clients-inner { max-width: 1440px; margin: 0 auto; }
 .clients h2 { margin: 0; text-align: center; font-size: clamp(23px, 2.2vw, 32px); font-weight: 500; letter-spacing: -.025em; line-height: 1.25; }
-.clients-logo-space { min-height: 136px; }
+.clients-window { overflow: hidden; margin-top: 28px; mix-blend-mode: multiply; mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); }
+.clients-track { display: flex; width: max-content; animation: clients-travel 42s linear infinite; }
+.clients-track[data-paused="true"] { animation-play-state: paused; }
+.clients-group { display: flex; flex: 0 0 auto; list-style: none; padding: 0; margin: 0; }
+.client-logo { width: 215px; height: 126px; display: flex; align-items: center; justify-content: center; }
+.client-logo svg { display: block; height: 86px; max-width: 80%; overflow: hidden; mix-blend-mode: multiply; }
+.clients-pause { display: flex; align-items: center; gap: 8px; margin: 8px auto 0; padding: 8px 12px; min-height: 44px; border: 0; background: transparent; color: #596675; font: inherit; font-size: 12px; cursor: pointer; }
+.clients-pause:hover { color: var(--navy); }
+.clients-pause:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+@keyframes clients-travel { to { transform: translateX(-50%); } }
+@media(hover: hover) { .clients-window:hover .clients-track { animation-play-state: paused; } }
+@media(prefers-reduced-motion: reduce) {
+  .clients-window { mask-image: none; }
+  .clients-track { width: 100%; }
+  .clients-group { flex-wrap: wrap; justify-content: center; width: 100%; }
+  .clients-group[aria-hidden="true"], .clients-pause { display: none; }
+  .client-logo { width: min(50%, 200px); }
+}
 @media(max-width: 560px) {
   .clients { padding: 40px 6% 24px; }
   .clients h2 { max-width: 300px; margin: 0 auto; }
-  .clients-logo-space { min-height: 110px; }
+  .clients-window { margin-top: 20px; }
+  .client-logo { width: 170px; height: 112px; }
+  .client-logo svg { height: 76px; }
 }
 
 /* Short, one-time entrances; hover feedback never changes layout. */
