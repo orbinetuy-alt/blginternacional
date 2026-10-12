@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const content = {
   Nosotros: { title: 'Tu socio en transporte.', text: 'BLG Transporte Internacional es un operador logístico de Paraguay que integra personas, procesos y tecnología para acompañar cada operación con atención personalizada.' },
@@ -9,11 +9,19 @@ type Section = keyof typeof content;
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const update = () => setCompact(previous => window.scrollY > (previous ? 24 : 64));
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
   const [section, setSection] = useState<Section>('Nosotros');
   const dialog = useRef<HTMLDialogElement>(null);
   function openSection(value: Section) { setSection(value); setMenuOpen(false); dialog.current?.showModal(); }
   return <>
-    <header className="header">
+    <div className="header-space" aria-hidden="true" />
+    <header className={`header${compact ? ' is-compact' : ''}`}>
       <a className="brand" href="#inicio" aria-label="BLG, inicio" onClick={() => setMenuOpen(false)}><Image src="/images/blg-logo.png" alt="BLG Transporte Internacional" width={500} height={258} priority /></a>
       <button className="menu-toggle" aria-expanded={menuOpen} aria-controls="main-nav" onClick={() => setMenuOpen(!menuOpen)}><span>{menuOpen ? 'Cerrar' : 'Menú'}</span><span className={`menu-lines ${menuOpen ? 'is-open' : ''}`} aria-hidden="true" /></button>
       <nav id="main-nav" className={`navigation ${menuOpen ? 'is-open' : ''}`} aria-label="Navegación principal">
