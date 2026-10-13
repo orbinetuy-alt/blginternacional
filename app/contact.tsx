@@ -32,7 +32,7 @@ export default function Contact() {
       '',
       String(data.get('message') ?? ''),
     ];
-    window.location.href = `mailto:comercial@blg.com.py?subject=${encodeURIComponent('Consulta empresarial desde la web')}&body=${encodeURIComponent(lines.join('\n'))}`;
+    window.location.href = `mailto:comercial@blgtransporte.com?subject=${encodeURIComponent('Consulta empresarial desde la web')}&body=${encodeURIComponent(lines.join('\n'))}`;
   }
 
   return (
