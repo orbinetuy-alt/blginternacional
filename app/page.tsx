@@ -7,6 +7,7 @@ import Coverage from './coverage';
 import FleetPhoto from './fleet-photo';
 import Fleet from './fleet';
 import About from './about';
+import Contact from './contact';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <FleetPhoto />
         <Fleet />
         <About />
+        <Contact />
       </ScrollReveal>
     </main>
   );

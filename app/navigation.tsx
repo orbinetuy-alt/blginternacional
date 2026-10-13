@@ -21,7 +21,7 @@ export default function Navigation() {
         <a className="nav-section" href="#cobertura" onClick={() => setMenuOpen(false)}>Cobertura</a>
         <a className="nav-section" href="#flota" onClick={() => setMenuOpen(false)}>Flota</a>
         <a className="nav-section" href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
-        <a className="nav-contact" href="mailto:comercial@blg.com.py">Contacto</a>
+        <a className="nav-contact" href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
       </nav>
     </header>
   </>;
