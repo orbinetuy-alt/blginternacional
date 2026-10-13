@@ -8,6 +8,7 @@ import FleetPhoto from './fleet-photo';
 import Fleet from './fleet';
 import About from './about';
 import Contact from './contact';
+import Footer from './footer';
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
         <Fleet />
         <About />
         <Contact />
+        <Footer />
       </ScrollReveal>
     </main>
   );

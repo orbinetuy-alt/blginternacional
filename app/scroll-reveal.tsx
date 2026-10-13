@@ -9,7 +9,8 @@ const revealTargets = [
   '.fleet-photo',
   '.fleet-heading', '.fleet-owned', '.fleet-specs', '.fleet-footer',
   '.about-heading', '.about-intro', '.about-experience', '.about-commitment', '.about-footer',
-  '.contact-heading', '.contact-channels', '.contact-panel', '.contact-bottom',
+  '.contact-heading', '.contact-channels', '.contact-panel',
+  '.footer-callout', '.footer-main', '.footer-bottom',
 ].join(', ');
 
 /** Content stays visible in the server HTML and when motion is reduced or JS is unavailable. */

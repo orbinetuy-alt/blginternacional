@@ -100,7 +100,6 @@ export default function Contact() {
           )}
         </div>
       </div>
-      <div className="contact-bottom"><span>BLG Transporte Internacional</span><span>Paraguay</span></div>
     </section>
   );
 }
