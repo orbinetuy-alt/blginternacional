@@ -1,11 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-
-const content = {
-  Nosotros: { title: 'Tu socio en transporte.', text: 'BLG Transporte Internacional es un operador logístico de Paraguay que integra personas, procesos y tecnología para acompañar cada operación con atención personalizada.' },
-} as const;
-type Section = keyof typeof content;
+import { useEffect, useState } from 'react';
 
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,9 +11,6 @@ export default function Navigation() {
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
-  const [section, setSection] = useState<Section>('Nosotros');
-  const dialog = useRef<HTMLDialogElement>(null);
-  function openSection(value: Section) { setSection(value); setMenuOpen(false); dialog.current?.showModal(); }
   return <>
     <div className="header-space" aria-hidden="true" />
     <header className={`header${compact ? ' is-compact' : ''}`}>
@@ -28,15 +20,9 @@ export default function Navigation() {
         <a className="nav-section" href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
         <a className="nav-section" href="#cobertura" onClick={() => setMenuOpen(false)}>Cobertura</a>
         <a className="nav-section" href="#flota" onClick={() => setMenuOpen(false)}>Flota</a>
-        {(Object.keys(content) as Section[]).map((name) => <button key={name} onClick={() => openSection(name)}>{name}</button>)}
+        <a className="nav-section" href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
         <a className="nav-contact" href="mailto:comercial@blg.com.py">Contacto</a>
       </nav>
     </header>
-    <dialog className="info-panel" ref={dialog} aria-labelledby="panel-title" onClick={(event) => { if (event.target === event.currentTarget) dialog.current?.close(); }}>
-      <div className="panel-content">
-        <div className="panel-top"><span>{section}</span><button onClick={() => dialog.current?.close()} aria-label="Cerrar información">Cerrar ×</button></div>
-        <h2 id="panel-title">{content[section].title}</h2><p>{content[section].text}</p><a href="mailto:comercial@blg.com.py">comercial@blg.com.py</a>
-      </div>
-    </dialog>
   </>;
 }

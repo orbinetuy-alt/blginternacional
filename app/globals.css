@@ -38,6 +38,43 @@
 .fleet-international-note { max-width: 370px; color: #657181; font-size: 14px; line-height: 1.6; margin: 28px 0 0; }
 .fleet-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 28px; }.fleet-footer p { margin: 0; color: #657181; font-size: 14px; }.fleet-footer a { font-size: 14px; border-bottom: 1px solid var(--red); padding: 8px 0; }.fleet-footer a span { margin-left: 22px; }
 @media(max-width: 800px) { .fleet-photo img { aspect-ratio: 16 / 9; object-position: center 32%; } .fleet-section { padding: 48px 6% 64px; } .fleet-heading { align-items: stretch; flex-direction: column; gap: 24px; margin-bottom: 28px; }.fleet-tabs { gap: 28px; }.fleet-panel { grid-template-columns: 1fr; min-height: 0; }.fleet-owned { padding: 30px; }.fleet-count { font-size: 112px; margin-top: 24px; }.fleet-count-caption { margin-bottom: 28px; }.fleet-support p { font-size: 26px; }.fleet-specs { padding: 32px 0; min-height: 420px; }.fleet-capacities li { font-size: 24px; }.fleet-footer { align-items: flex-start; flex-direction: column; gap: 10px; } }
+
+.about { background: var(--navy); color: white; padding: 104px 5% 48px; overflow: hidden; }
+.about-inner { max-width: 1440px; margin: 0 auto; }
+.about-heading { display: grid; grid-template-columns: .82fr 1.18fr; gap: 7%; align-items: end; padding-bottom: 64px; }
+.about .section-label { align-self: start; color: #9eabba; }
+.about h2 { grid-column: 2; margin: 0; font-size: clamp(48px, 6.3vw, 96px); font-weight: 400; line-height: .97; letter-spacing: -.055em; }
+.about-intro { margin-left: 42%; display: grid; grid-template-columns: 1.05fr .95fr; gap: 8%; padding: 42px 0 72px; border-top: 1px solid #ffffff35; }
+.about-intro p { margin: 0; color: #b9c4cf; font-size: 16px; line-height: 1.72; }
+.about-intro p:first-child { color: white; font-size: clamp(20px, 1.8vw, 27px); line-height: 1.45; letter-spacing: -.018em; }
+.about-experience { display: grid; grid-template-columns: .82fr 1.18fr; gap: 7%; align-items: end; padding: 54px 0 64px; border-top: 1px solid #ffffff35; }
+.about-number { margin: 0; font-size: clamp(138px, 18vw, 280px); line-height: .72; font-weight: 400; letter-spacing: -.085em; color: white; }
+.about-number span { color: var(--red); font-size: .37em; vertical-align: top; line-height: 1.15; margin-left: 12px; }
+.about-overline { margin: 0 0 25px; color: #99a8b8; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+.about-experience h3 { margin: 0; max-width: 620px; font-size: clamp(30px, 3.35vw, 52px); line-height: 1.08; font-weight: 400; letter-spacing: -.04em; }
+.about-commitment { display: grid; grid-template-columns: .82fr 1.18fr; gap: 7%; padding: 52px 0 68px; border-top: 1px solid #ffffff35; }
+.about-commitment>p { margin: 0; max-width: 480px; color: #aebbc8; font-size: 16px; line-height: 1.75; }
+.about blockquote { margin: 0; padding-left: 28px; border-left: 2px solid var(--red); font-size: clamp(25px, 2.6vw, 40px); line-height: 1.2; letter-spacing: -.035em; color: #d2d9e0; }
+.about blockquote strong { color: white; font-weight: 400; }
+.about-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; border-top: 1px solid #ffffff35; color: #92a2b2; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+.about-footer a { padding: 10px 0; color: white; border-bottom: 1px solid var(--red); }
+.about-footer a span { margin-left: 26px; }
+@media(max-width: 800px) {
+  .about { padding: 72px 6% 38px; }
+  .about-heading, .about-experience, .about-commitment { grid-template-columns: 1fr; gap: 34px; }
+  .about-heading { padding-bottom: 44px; }
+  .about h2 { grid-column: 1; }
+  .about-intro { margin-left: 0; grid-template-columns: 1fr; gap: 24px; padding: 34px 0 56px; }
+  .about-experience { padding: 44px 0 50px; }
+  .about-number { font-size: clamp(132px, 39vw, 190px); }
+  .about-commitment { padding: 42px 0 54px; }
+}
+@media(max-width: 480px) {
+  .about h2 { font-size: 49px; }
+  .about-number { font-size: 132px; }
+  .about blockquote { padding-left: 20px; }
+  .about-footer { align-items: flex-start; flex-direction: column; }
+}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 24px); }
 body { margin: 0; background: var(--navy); color: var(--white); font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
