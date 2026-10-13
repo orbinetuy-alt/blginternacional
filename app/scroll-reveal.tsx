@@ -2,7 +2,16 @@
 
 import { useEffect, useRef, type ReactNode } from 'react';
 
-/** Content stays visible in the server HTML and when motion is reduced. */
+const revealTargets = [
+  '.services-header', '.service', '.services-complementary', '.services-contact',
+  '.clients h2', '.clients-window', '.clients-pause',
+  '.coverage-copy', '.coverage-map-panel',
+  '.fleet-photo',
+  '.fleet-heading', '.fleet-owned', '.fleet-specs', '.fleet-footer',
+  '.about-heading', '.about-intro', '.about-experience', '.about-commitment', '.about-footer',
+].join(', ');
+
+/** Content stays visible in the server HTML and when motion is reduced or JS is unavailable. */
 export default function ScrollReveal({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null);
 
@@ -11,7 +20,7 @@ export default function ScrollReveal({ children }: { children: ReactNode }) {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (!scope || preference.matches || !('IntersectionObserver' in window)) return;
 
-    const targets = Array.from(scope.querySelectorAll<HTMLElement>('.services-header, .service, .services-complementary, .services-contact'));
+    const targets = Array.from(scope.querySelectorAll<HTMLElement>(revealTargets));
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
@@ -19,7 +28,7 @@ export default function ScrollReveal({ children }: { children: ReactNode }) {
           observer.unobserve(entry.target);
         }
       }
-    }, { threshold: 0, rootMargin: '0px 0px -28px 0px' });
+    }, { threshold: 0.06, rootMargin: '0px 0px -5% 0px' });
 
     for (const target of targets) {
       // Never hide content the visitor is already reading (including deep links).
@@ -52,5 +61,5 @@ export default function ScrollReveal({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <div ref={root}>{children}</div>;
+  return <div className="reveal-scope" ref={root}>{children}</div>;
 }

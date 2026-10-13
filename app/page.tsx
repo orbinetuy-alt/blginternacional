@@ -22,12 +22,14 @@ export default function Home() {
         </div>
         <p className="photo-caption">BLG · TRANSPORTE TERRESTRE</p>
       </section>
-      <ScrollReveal><Services /></ScrollReveal>
-      <Clients />
-      <Coverage />
-      <FleetPhoto />
-      <Fleet />
-      <ScrollReveal><About /></ScrollReveal>
+      <ScrollReveal>
+        <Services />
+        <Clients />
+        <Coverage />
+        <FleetPhoto />
+        <Fleet />
+        <About />
+      </ScrollReveal>
     </main>
   );
 }

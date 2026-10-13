@@ -238,12 +238,19 @@ body:has(dialog[open]) { overflow: hidden; }
 }
 
 /* Short, one-time entrances; hover feedback never changes layout. */
+.reveal-scope { display: contents; }
 .hero-heading .eyebrow { animation: enter-up 650ms cubic-bezier(.2,.7,.2,1) 80ms both; }
 .hero-heading h1 { animation: enter-up 750ms cubic-bezier(.2,.7,.2,1) 180ms both; }
 .signature { transform-origin: left; animation: draw-line 700ms cubic-bezier(.2,.7,.2,1) 380ms both; }
-[data-reveal] { transition: opacity 650ms cubic-bezier(.2,.7,.2,1), transform 650ms cubic-bezier(.2,.7,.2,1); }
-[data-reveal="pending"] { opacity: 0; transform: translateY(18px); }
+[data-reveal] { transition: opacity 720ms cubic-bezier(.2,.7,.2,1), transform 720ms cubic-bezier(.2,.7,.2,1); }
+[data-reveal="pending"] { opacity: 0; transform: translateY(22px); will-change: opacity, transform; }
 [data-reveal="visible"] { opacity: 1; transform: translateY(0); }
+.clients-window[data-reveal="visible"], .clients-pause[data-reveal="visible"], .coverage-map-panel[data-reveal="visible"], .fleet-specs[data-reveal="visible"], .about-intro[data-reveal="visible"], .about-experience[data-reveal="visible"], .about-commitment[data-reveal="visible"], .about-footer[data-reveal="visible"] { transition-delay: 90ms; }
+.clients-pause[data-reveal="visible"], .about-footer[data-reveal="visible"] { transition-delay: 150ms; }
+.coverage-copy[data-reveal="pending"], .fleet-owned[data-reveal="pending"] { transform: translateX(-20px); }
+.coverage-map-panel[data-reveal="pending"], .fleet-specs[data-reveal="pending"] { transform: translateX(20px); }
+.fleet-photo[data-reveal="pending"] { opacity: .15; transform: scale(.99); }
+.fleet-photo[data-reveal="visible"] { transform: scale(1); }
 .service:nth-child(even)[data-reveal="visible"] { transition-delay: 85ms; }
 [data-reveal]:focus-within { opacity: 1; transform: none; transition-delay: 0ms; }
 .navigation button, .nav-section { position: relative; transition: color 180ms ease; }
