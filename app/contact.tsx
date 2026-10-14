@@ -3,6 +3,12 @@
 import { useState, type FormEvent, type KeyboardEvent } from 'react';
 
 type Channel = 'empresas' | 'trabajo';
+type OperationScope = 'Nacional' | 'Internacional';
+
+const contactByScope: Record<OperationScope, { phone: string; href: string }> = {
+  Nacional: { phone: '+595 981 916 919', href: 'tel:+595981916919' },
+  Internacional: { phone: '+595 973 926 605', href: 'tel:+595973926605' },
+};
 
 const channels = [
   { id: 'empresas' as const, number: '01', title: 'Consultas para empresas', text: 'Cotizaciones, disponibilidad y coordinación de operaciones.' },
@@ -11,6 +17,8 @@ const channels = [
 
 export default function Contact() {
   const [channel, setChannel] = useState<Channel>('empresas');
+  const [scope, setScope] = useState<OperationScope>('Nacional');
+  const contact = contactByScope[scope];
 
   function tabKeys(event: KeyboardEvent<HTMLButtonElement>) {
     if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
@@ -18,6 +26,14 @@ export default function Contact() {
     const next = event.key === 'ArrowDown' || event.key === 'End' ? 'trabajo' : 'empresas';
     setChannel(next);
     document.getElementById(`contact-tab-${next}`)?.focus();
+  }
+
+  function scopeKeys(event: KeyboardEvent<HTMLButtonElement>) {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const next: OperationScope = event.key === 'ArrowRight' || event.key === 'End' ? 'Internacional' : 'Nacional';
+    setScope(next);
+    document.getElementById(`contact-scope-${next.toLowerCase()}`)?.focus();
   }
 
   function prepareInquiry(event: FormEvent<HTMLFormElement>) {
@@ -28,16 +44,27 @@ export default function Contact() {
       `Empresa: ${String(data.get('company') ?? '')}`,
       `Email: ${String(data.get('email') ?? '')}`,
       `Teléfono: ${String(data.get('phone') ?? '') || 'No indicado'}`,
-      `Operación: ${String(data.get('scope') ?? '')}`,
+      `Operación: ${scope}`,
       `Servicio: ${String(data.get('service') ?? '')}`,
       '',
       String(data.get('message') ?? ''),
     ];
-    window.location.href = `mailto:comercial@blgtransporte.com?subject=${encodeURIComponent('Consulta empresarial desde la web')}&body=${encodeURIComponent(lines.join('\n'))}`;
+    window.location.href = `mailto:comercial@blgtransporte.com?subject=${encodeURIComponent(`Consulta ${scope.toLowerCase()} desde la web`)}&body=${encodeURIComponent(lines.join('\n'))}`;
   }
 
   return (
     <section className="contact-section" id="contacto" aria-labelledby="contact-title">
+      <div className="contact-mode-bar">
+        <div>
+          <span>Área comercial</span>
+          <strong>Elegí el tipo de operación</strong>
+        </div>
+        <div className="contact-mode-options" role="radiogroup" aria-label="Tipo de operación">
+          {(['Nacional', 'Internacional'] as const).map((item) => (
+            <button key={item} id={`contact-scope-${item.toLowerCase()}`} type="button" role="radio" aria-checked={scope === item} tabIndex={scope === item ? 0 : -1} onKeyDown={scopeKeys} onClick={() => setScope(item)}>{item}</button>
+          ))}
+        </div>
+      </div>
       <div className="contact-inner">
         <div className="contact-heading">
           <p className="section-label">Contacto</p>
@@ -53,6 +80,17 @@ export default function Contact() {
               </button>
             ))}
           </div>
+
+          <dl className="contact-directory">
+            <div aria-live="polite">
+              <dt>Contacto {scope.toLowerCase()}</dt>
+              <dd><a href={contact.href}>{contact.phone}</a></dd>
+            </div>
+            <div>
+              <dt>Ubicación</dt>
+              <dd>Acosta Ñu entre Juan S. I. Bogarín y Emiliano R. Fernández.<br />Barrio 3 Bocas · Villa Elisa, Paraguay.</dd>
+            </div>
+          </dl>
         </div>
 
         <div className="contact-panel" id="contact-panel" role="tabpanel" aria-labelledby={`contact-tab-${channel}`}>
@@ -62,13 +100,6 @@ export default function Contact() {
               <h3>Contanos qué necesitás transportar.</h3>
               <p className="contact-panel-intro">Completá los datos esenciales. Al finalizar, prepararemos el correo con tu consulta.</p>
               <div className="contact-form-grid">
-                <fieldset className="contact-scope contact-wide">
-                  <legend>Tipo de operación</legend>
-                  <div>
-                    <label><input type="radio" name="scope" value="Nacional" defaultChecked /><span>Nacional</span></label>
-                    <label><input type="radio" name="scope" value="Internacional" /><span>Internacional</span></label>
-                  </div>
-                </fieldset>
                 <label>Nombre y apellido<input name="name" autoComplete="name" placeholder="Tu nombre" required /></label>
                 <label>Empresa<input name="company" autoComplete="organization" placeholder="Nombre de la empresa" required /></label>
                 <label>Email corporativo<input name="email" type="email" autoComplete="email" placeholder="nombre@empresa.com" required /></label>
