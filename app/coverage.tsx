@@ -22,7 +22,7 @@ export default function Coverage() {
     changeMode(next);
     document.getElementById(`coverage-tab-${next}`)?.focus();
   }
-  const mail = `mailto:comercial@blg.com.py?subject=${encodeURIComponent(`Consulta de transporte ${national ? 'nacional' : 'internacional'}: ${selected.name}`)}&body=${encodeURIComponent(`Hola BLG, quisiera consultar por un envío hacia ${selected.name}${national ? ', Paraguay' : ''}.\n\nOrigen:\nTipo de carga:\nFecha estimada:\n`)}`;
+  const mail = `mailto:comercial@blgtransporte.com?subject=${encodeURIComponent(`Consulta de transporte ${national ? 'nacional' : 'internacional'}: ${selected.name}`)}&body=${encodeURIComponent(`Hola BLG, quisiera consultar por un envío hacia ${selected.name}${national ? ', Paraguay' : ''}.\n\nOrigen:\nTipo de carga:\nFecha estimada:\n`)}`;
   const asuncion = maps.national.find(region => region.id === 'PY-ASU')!;
 
   return <section className="coverage" id="cobertura" aria-labelledby="coverage-title">

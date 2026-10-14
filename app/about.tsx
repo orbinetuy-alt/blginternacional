@@ -27,7 +27,7 @@ export default function About() {
 
         <div className="about-footer">
           <span>Personas · Procesos · Tecnología</span>
-          <a href="mailto:comercial@blg.com.py?subject=Contacto%20con%20BLG">Conversemos <span aria-hidden="true">↗</span></a>
+          <a href="mailto:comercial@blgtransporte.com?subject=Contacto%20con%20BLG">Conversemos <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

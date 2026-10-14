@@ -24,7 +24,7 @@ export default function Services() {
             <li className="service" key={service.name}>
               <span className="service-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
               <div className="service-content">
-                <h3><a href={`mailto:comercial@blg.com.py?subject=${encodeURIComponent(`Consulta sobre ${service.name.toLowerCase()}`)}`} aria-label={`Consultar sobre ${service.name.toLowerCase()} por correo`}>{service.name}</a></h3>
+                <h3><a href={`mailto:comercial@blgtransporte.com?subject=${encodeURIComponent(`Consulta sobre ${service.name.toLowerCase()}`)}`} aria-label={`Consultar sobre ${service.name.toLowerCase()} por correo`}>{service.name}</a></h3>
                 <p>{service.description}</p>
                 <span className="service-label">{service.label}</span>
               </div>
@@ -37,7 +37,7 @@ export default function Services() {
           <div><h3>Distribución local</h3><p>Distribución de carga general y refrigerada hasta su destino final.</p></div>
           <div><h3>Almacenaje</h3><p>Resguardo de mercadería hasta el momento de su envío.</p></div>
         </div>
-        <div className="services-contact"><span>Contanos qué necesitás transportar.</span><a href="mailto:comercial@blg.com.py?subject=Consulta%20de%20transporte">Hablemos de tu operación</a></div>
+        <div className="services-contact"><span>Contanos qué necesitás transportar.</span><a href="mailto:comercial@blgtransporte.com?subject=Consulta%20de%20transporte">Hablemos de tu operación</a></div>
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ export default function Fleet() {
           </>}
         </div>
       </div>
-      <div className="fleet-footer"><p>Hablemos de tu próxima carga.</p><a href={`mailto:comercial@blg.com.py?subject=${encodeURIComponent(`Consulta sobre flota ${mode}`)}`}>Consultar disponibilidad <span aria-hidden="true">↗</span></a></div>
+      <div className="fleet-footer"><p>Hablemos de tu próxima carga.</p><a href={`mailto:comercial@blgtransporte.com?subject=${encodeURIComponent(`Consulta sobre flota ${mode}`)}`}>Consultar disponibilidad <span aria-hidden="true">↗</span></a></div>
     </div>
   </section>;
 }
