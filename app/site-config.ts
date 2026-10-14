@@ -2,7 +2,7 @@ export const SITE_NAME = 'BLG Transporte Internacional';
 
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ??
-  'https://blg-transporte-internacional.manuelquartinoarocen.chatgpt.site'
+  'https://www.blgtransporte.com'
 ).replace(/\/$/, '');
 
 export const SITE_DESCRIPTION =

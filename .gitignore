@@ -1,5 +1,6 @@
 node_modules/
 .next/
 out/
+deploy/*.zip
 *.tsbuildinfo
 next-env.d.ts
