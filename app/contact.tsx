@@ -28,6 +28,7 @@ export default function Contact() {
       `Empresa: ${String(data.get('company') ?? '')}`,
       `Email: ${String(data.get('email') ?? '')}`,
       `Teléfono: ${String(data.get('phone') ?? '') || 'No indicado'}`,
+      `Operación: ${String(data.get('scope') ?? '')}`,
       `Servicio: ${String(data.get('service') ?? '')}`,
       '',
       String(data.get('message') ?? ''),
@@ -61,6 +62,13 @@ export default function Contact() {
               <h3>Contanos qué necesitás transportar.</h3>
               <p className="contact-panel-intro">Completá los datos esenciales. Al finalizar, prepararemos el correo con tu consulta.</p>
               <div className="contact-form-grid">
+                <fieldset className="contact-scope contact-wide">
+                  <legend>Tipo de operación</legend>
+                  <div>
+                    <label><input type="radio" name="scope" value="Nacional" defaultChecked /><span>Nacional</span></label>
+                    <label><input type="radio" name="scope" value="Internacional" /><span>Internacional</span></label>
+                  </div>
+                </fieldset>
                 <label>Nombre y apellido<input name="name" autoComplete="name" placeholder="Tu nombre" required /></label>
                 <label>Empresa<input name="company" autoComplete="organization" placeholder="Nombre de la empresa" required /></label>
                 <label>Email corporativo<input name="email" type="email" autoComplete="email" placeholder="nombre@empresa.com" required /></label>
@@ -68,8 +76,7 @@ export default function Contact() {
                 <label className="contact-wide">Servicio
                   <select name="service" defaultValue="" required>
                     <option value="" disabled>Seleccioná una opción</option>
-                    <option>Transporte nacional</option>
-                    <option>Transporte internacional</option>
+                    <option>Carga general</option>
                     <option>Carga refrigerada</option>
                     <option>Carga especial o de proyecto</option>
                     <option>Distribución o almacenaje</option>
@@ -94,7 +101,7 @@ export default function Contact() {
                   <li><span>03</span> Currículum adjunto</li>
                 </ul>
               </div>
-              <a className="contact-submit" href="mailto:comercial@blg.com.py?subject=Postulaci%C3%B3n%20laboral%20-%20BLG">Enviar mi CV <span aria-hidden="true">↗</span></a>
+              <a className="contact-submit" href="mailto:rrhh@blgtransporte.com?subject=Postulaci%C3%B3n%20laboral%20-%20BLG">Enviar mi CV <span aria-hidden="true">↗</span></a>
               <p className="contact-note">La postulación se enviará por correo electrónico.</p>
             </div>
           )}

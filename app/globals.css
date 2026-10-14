@@ -96,6 +96,15 @@
 .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; padding-top: 30px; border-top: 1px solid #d6dfe5; }
 .contact-form-grid label { color: #324456; font-size: 13px; font-weight: 600; }
 .contact-form-grid label>span { color: #83909c; font-weight: 400; }
+.contact-scope { min-width: 0; margin: 0; padding: 0; border: 0; }
+.contact-scope legend { margin-bottom: 11px; color: #324456; font-size: 13px; font-weight: 600; }
+.contact-scope>div { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #afbec8; }
+.contact-scope label { position: relative; cursor: pointer; }
+.contact-scope label+label { border-left: 1px solid #afbec8; }
+.contact-form-grid .contact-scope input { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); }
+.contact-scope label>span { min-height: 48px; display: grid; place-items: center; padding: 12px 18px; background: transparent; color: #647483; font-size: 14px; font-weight: 500; transition: background-color 180ms ease, color 180ms ease; }
+.contact-scope input:checked+span { background: var(--navy); color: white; }
+.contact-scope input:focus-visible+span { outline: 2px solid var(--red); outline-offset: 3px; }
 .contact-form-grid input, .contact-form-grid select, .contact-form-grid textarea { display: block; width: 100%; margin-top: 10px; padding: 13px 2px; border: 0; border-bottom: 1px solid #afbec8; border-radius: 0; background: transparent; color: var(--navy); font: inherit; font-size: 15px; outline: 0; }
 .contact-form-grid textarea { padding: 14px; border: 1px solid #afbec8; resize: vertical; min-height: 116px; line-height: 1.5; }
 .contact-form-grid input:focus, .contact-form-grid select:focus, .contact-form-grid textarea:focus { border-color: var(--red); box-shadow: 0 1px 0 var(--red); }
