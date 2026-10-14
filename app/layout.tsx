@@ -55,9 +55,13 @@ export const metadata: Metadata = {
   },
   category: 'transportation and logistics',
   icons: {
-    icon: [{ url: '/images/blg-logo.png', type: 'image/png' }],
-    shortcut: '/images/blg-logo.png',
-    apple: '/images/blg-logo.png',
+    icon: [
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
+    ],
+    shortcut: '/favicon-32x32.png',
+    apple: [{ url: '/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
   },
 };
 
